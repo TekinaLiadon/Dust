@@ -1,0 +1,65 @@
+{
+  "name": "Dust",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \\\"./src/**/*.?(js|vue)\\\" --locales \\\"src/locales/**/*.json\\\"",
+    "i18n:reload-locales": "excelVueI18n -p utils/locales.xlsx -f src/locales"
+  },
+  "dependencies": {
+    "@intlify/vue-i18n-loader": "^4.0.1",
+    "@vuelidate/core": "^2.0.0-alpha.32",
+    "@vuelidate/validators": "^2.0.0-alpha.25",
+    "axios": "^0.24.0",
+    "animate.css": "^4.1.1",
+    "core-js": "^3.6.5",
+    "excel-vue-i18n": "^1.1.0",
+    "sass": "^1.43.4",
+    "sass-loader": "10.1.1",
+    "unique-string": "^3.0.0",
+    "vue": "^3.0.0",
+    "vue-cli-plugin-i18n": "^2.3.1",
+    "vue-i18n": "9.1.7",
+    "vue-router": "4.0.11",
+    "vuex": "4.0.2",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-vue": "^7.0.0",
+    "prettier": "2.4.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/html-closing-bracket-newline": "error",
+      "vue/html-closing-bracket-spacing": "warn"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
+
