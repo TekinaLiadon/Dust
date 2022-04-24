@@ -1,5 +1,5 @@
 {
-  "name": "Dust",
+  "name": "Project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -53,7 +53,8 @@
     },
     "rules": {
       "vue/html-closing-bracket-newline": "error",
-      "vue/html-closing-bracket-spacing": "warn"
+      "vue/html-closing-bracket-spacing": "warn",
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [
