@@ -5,7 +5,7 @@
       <InputWrap
           label="Email"
           type="email"
-          v-model="formData.email"
+          v-model="formData.username"
       />
     </div>
     <div class="registration__input-wrap">
@@ -15,7 +15,7 @@
           v-model="formData.password"
       />
     </div>
-    <Button>Зарегестрировать</Button>
+    <Button @click="registration">Зарегестрировать</Button>
   </div>
 </Layout>
 </template>
@@ -24,15 +24,35 @@
 import Layout from "../components/Layout";
 import InputWrap from "../components/ui/InputWrap";
 import Button from "../components/ui/Button";
+import axios from "axios"
+
 export default {
   name: "Registration",
   components: {Button, InputWrap, Layout},
   data() {
     return {
       formData: {
-        email: "",
+        username: "",
         password: "",
       },
+    }
+  },
+  methods: {
+    registration() {
+      axios({
+        method: 'post',
+        url: 'http://192.168.1.222:3000/auth',
+        headers: {
+          Accept: "application/json",
+        },
+        data: this.formData,
+      })
+          .then((response) =>{
+            console.log(response);
+          })
+          .catch((error) =>{
+            console.log(error);
+          });
     }
   },
 }

@@ -5,7 +5,7 @@
         <InputWrap
             label="Email"
             type="email"
-            v-model="formData.email"
+            v-model="formData.username"
         />
       </div>
       <div class="login__input-wrap">
@@ -15,7 +15,7 @@
             v-model="formData.password"
         />
       </div>
-      <Button>Войти</Button>
+      <Button @click="login">Войти</Button>
     </div>
   </Layout>
 </template>
@@ -24,6 +24,8 @@
 import Layout from "../components/Layout";
 import InputWrap from "../components/ui/InputWrap";
 import Button from "../components/ui/Button";
+import axios from "axios";
+import backend from "../api/backend";
 
 export default {
   name: "Login",
@@ -31,9 +33,28 @@ export default {
   data() {
     return {
       formData: {
-        email: "",
+        username: "",
         password: "",
       },
+    }
+  },
+  methods: {
+    login() {
+      // this.$store.commit('setUserToken', 'a')
+      // this.$store.commit('killUser')
+      backend({
+        method: 'post',
+        url: '/auth',
+        data: this.formData,
+      })
+          .then((response) => {
+            console.log(response.data);
+            this.$store.commit('setUserToken', response.data.token)
+            this.$router.push({name: 'Home'})
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
   },
 }

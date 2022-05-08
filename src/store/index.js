@@ -13,7 +13,10 @@ export default createStore({
     plugins: [
         createPersistedState(
             {
-                paths: []
+                paths: [
+                    "userToken",
+                    "isAuthenticated",
+                ]
             }),
     ],
 })
