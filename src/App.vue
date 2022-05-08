@@ -1,10 +1,8 @@
 <template>
-<div>
-  <router-view v-slot="{ Component, route }">
+  <router-view v-slot="{ Component }">
       <component  :is="Component" />
 <!--      <Preloader v-else overlay-mode />-->
   </router-view>
-</div>
 </template>
 
 <script>
@@ -15,6 +13,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+#app {
+  height: 100vh;
+}
+body {
+  margin: 0;
+}
 </style>

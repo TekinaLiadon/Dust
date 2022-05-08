@@ -1,15 +1,13 @@
 <template>
-  <Layout>
-    <div>
-      d
-    </div>
-  </Layout>
+<Layout>
+  r
+</Layout>
 </template>
 
 <script>
 import Layout from "../components/Layout";
 export default {
-  name: "Home",
+  name: "CharacterList",
   components: {Layout}
 }
 </script>

@@ -1,32 +1,31 @@
 <template>
-  <Layout>
-    <div class="login">
-      <div class="login__input-wrap">
-        <InputWrap
-            label="Email"
-            type="email"
-            v-model="formData.email"
-        />
-      </div>
-      <div class="login__input-wrap">
-        <InputWrap
-            label="Password"
-            type="password"
-            v-model="formData.password"
-        />
-      </div>
-      <Button>Войти</Button>
+<Layout>
+  <div class="registration">
+    <div class="registration__input-wrap">
+      <InputWrap
+          label="Email"
+          type="email"
+          v-model="formData.email"
+      />
     </div>
-  </Layout>
+    <div class="registration__input-wrap">
+      <InputWrap
+          label="Password"
+          type="password"
+          v-model="formData.password"
+      />
+    </div>
+    <Button>Зарегестрировать</Button>
+  </div>
+</Layout>
 </template>
 
 <script>
 import Layout from "../components/Layout";
 import InputWrap from "../components/ui/InputWrap";
 import Button from "../components/ui/Button";
-
 export default {
-  name: "Login",
+  name: "Registration",
   components: {Button, InputWrap, Layout},
   data() {
     return {
@@ -40,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login {
+.registration {
   display: flex;
   flex-direction: column;
   align-content: center;
