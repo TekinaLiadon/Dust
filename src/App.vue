@@ -19,5 +19,10 @@ export default {
 }
 body {
   margin: 0;
+  font-family: 'Roboto Flex', sans-serif;
+}
+p {
+  color: rgba(202, 187, 147, 1);
+  font-size: 0.9em;
 }
 </style>

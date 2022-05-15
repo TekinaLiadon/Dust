@@ -10,7 +10,7 @@
     <div class="layout__content">
       <slot  />
     </div>
-    <Footer  />
+    <Footer v-if="false" />
   </div>
 </template>
 
@@ -44,8 +44,8 @@ export default {
 <style lang="scss">
 .layout {
   display: flex;
-  max-height: 100%;
-  height: 100%;
+  min-height: 100%;
+  background-image: url("../assets/images/backgraund-main.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -55,12 +55,14 @@ export default {
   align-items: center;
 
   &__content {
-    overflow-y: auto;
-    border-radius: 10px;
-    flex-grow: 1;
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
+    background: radial-gradient(50% 50% at 50% 50%, #232323 0%, #121212 100%);
+    flex-grow: 1;
+    width: 73%;
+    min-height: calc(100% - 120px);
     justify-content: center;
+    align-content: flex-start;
   }
   &__sidebar {
     background: #0D0D0DFF;

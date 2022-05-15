@@ -1,15 +1,15 @@
 <template>
-<Layout>
-  <p>
-    aaaaa
-  </p>
-</Layout>
+  <Layout>
+    <p>
+      aaaaa
+    </p>
+  </Layout>
 </template>
 
 <script>
 import Layout from "../components/Layout";
 export default {
-  name: "CharacterList",
+  name: "Online",
   components: {Layout}
 }
 </script>

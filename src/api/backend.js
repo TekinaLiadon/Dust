@@ -27,7 +27,7 @@ backend.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 401) store.commit("user/killUser");
+    if (error.response.status === 401) store.commit("killUser");
     throw error;
   }
 );

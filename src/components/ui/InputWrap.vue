@@ -55,6 +55,7 @@ export default {
 <style lang="scss">
 .input {
   position: relative;
+  color: white;
 
   input {
     width: 100%;

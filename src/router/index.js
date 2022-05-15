@@ -7,7 +7,6 @@ const routes = [
         component: () => import('@/views/Home.vue'),
         meta: {
             name: 'Главная',
-            navigator: true,
         },
     },
     {
@@ -16,7 +15,6 @@ const routes = [
         component: () => import('@/views/Login.vue'),
         meta: {
             name: 'Авторизация',
-            navigator: false,
         },
     },
     {
@@ -25,16 +23,6 @@ const routes = [
         component: () => import('@/views/Registration.vue'),
         meta: {
             name: 'Регистрация',
-            navigator: false,
-        },
-    },
-    {
-        path: '/abilityList',
-        name: 'AbilityList',
-        component: () => import('@/views/AbilityList.vue'),
-        meta: {
-            name: 'Список навыков',
-            navigator: true,
         },
     },
     {
@@ -43,7 +31,30 @@ const routes = [
         component: () => import('@/views/CharacterList.vue'),
         meta: {
             name: 'Список персонажей',
-            navigator: true,
+        },
+    },
+    {
+        path: '/serverRules',
+        name: 'ServerRules',
+        component: () => import('@/views/ServerRules.vue'),
+        meta: {
+            name: 'Правила сервера',
+        },
+    },
+    {
+        path: '/сombatSystem',
+        name: 'CombatSystem',
+        component: () => import('@/views/CombatSystem.vue'),
+        meta: {
+            name: 'Боевая система',
+        },
+    },
+    {
+        path: '/online',
+        name: 'Online',
+        component: () => import('@/views/Online.vue'),
+        meta: {
+            name: 'Онлайн',
         },
     },
     {
@@ -52,7 +63,6 @@ const routes = [
         component: () => import("@/views/ErrorPage.vue"),
         meta: {
             name: '404',
-            navigator: false,
         },
     },
     {
@@ -60,7 +70,6 @@ const routes = [
         redirect: "/error",
         meta: {
             name: 'Redirect',
-            navigator: false,
         },
     },
 ]

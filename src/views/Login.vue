@@ -15,7 +15,8 @@
             v-model="formData.password"
         />
       </div>
-      <Button @click="login">Войти</Button>
+      <Button class="login__btn" @click="login">Войти</Button>
+      <Button class="login__btn" @click="$router.push({name: 'Registration'})">Регистрация</Button>
     </div>
   </Layout>
 </template>
@@ -39,6 +40,17 @@ export default {
     }
   },
   methods: {
+    get() {
+      backend({
+        method: 'get',
+        url: '/getUsername',
+      }).then((response) => {
+        console.log(response.data);
+      })
+          .catch((error) => {
+            console.log(error);
+          });
+    },
     login() {
       // this.$store.commit('setUserToken', 'a')
       // this.$store.commit('killUser')
@@ -68,8 +80,12 @@ export default {
   justify-content: center;
 
   &__input-wrap {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     border: 1px solid;
+  }
+
+  &__btn {
+    margin-top: 10px;
   }
 }
 </style>
