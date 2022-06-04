@@ -1,5 +1,4 @@
 <template>
-  <Layout>
     <div class="home__header">
       <img src="../assets/images/home-hedear.png" class="home__header__img" />
     </div>
@@ -26,16 +25,14 @@
         <img src="../assets/images/home-content3.png">
       </div>
     </div>
-  </Layout>
 </template>
 
 <script>
-import Layout from "../components/Layout";
 import Button from "../components/ui/Button";
 
 export default {
   name: "Home",
-  components: {Button, Layout}
+  components: {Button}
 }
 </script>
 

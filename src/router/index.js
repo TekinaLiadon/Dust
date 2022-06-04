@@ -58,6 +58,21 @@ const routes = [
         },
     },
     {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/Profile.vue'),
+        children: [
+            {
+                path: 'character',
+                name: 'Character',
+                component: () => import('@/views/profile/Character.vue'),
+                meta: {
+                    name: 'Персонаж',
+                },
+            },
+        ],
+    },
+    {
         path: "/error",
         name: "Error",
         component: () => import("@/views/ErrorPage.vue"),

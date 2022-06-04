@@ -1,5 +1,4 @@
 <template>
-<Layout>
   <div class="registration">
     <div class="registration__input-wrap">
       <InputWrap
@@ -17,18 +16,16 @@
     </div>
     <Button @click="registration">Зарегестрировать</Button>
   </div>
-</Layout>
 </template>
 
 <script>
-import Layout from "../components/Layout";
 import InputWrap from "../components/ui/InputWrap";
 import Button from "../components/ui/Button";
 import axios from "axios"
 
 export default {
   name: "Registration",
-  components: {Button, InputWrap, Layout},
+  components: {Button, InputWrap},
   data() {
     return {
       formData: {

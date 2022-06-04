@@ -1,19 +1,24 @@
 <template>
   <router-view v-slot="{ Component }">
+    <Layout>
       <component  :is="Component" />
+    </Layout>
 <!--      <Preloader v-else overlay-mode />-->
   </router-view>
 </template>
 
 <script>
 import "animate.css";
+import Layout from "./components/Layout";
 
 export default {
-  name: "App"
+  name: "App",
+  components: {Layout}
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "~@/scss/style.scss";
 #app {
   height: 100vh;
 }

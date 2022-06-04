@@ -1,5 +1,4 @@
 <template>
-  <Layout>
     <div class="login">
       <div class="login__input-wrap">
         <InputWrap
@@ -18,11 +17,9 @@
       <Button class="login__btn" @click="login">Войти</Button>
       <Button class="login__btn" @click="$router.push({name: 'Registration'})">Регистрация</Button>
     </div>
-  </Layout>
 </template>
 
 <script>
-import Layout from "../components/Layout";
 import InputWrap from "../components/ui/InputWrap";
 import Button from "../components/ui/Button";
 import axios from "axios";
@@ -30,7 +27,7 @@ import backend from "../api/backend";
 
 export default {
   name: "Login",
-  components: {Button, InputWrap, Layout},
+  components: {Button, InputWrap},
   data() {
     return {
       formData: {
