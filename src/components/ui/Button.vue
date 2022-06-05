@@ -25,6 +25,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style >
+.btn {
+  border: 2px solid var(--main-border);
+  background: var(--main-back);
+  color: var(--main-text);
+  font-size: 15px;
+}
 </style>

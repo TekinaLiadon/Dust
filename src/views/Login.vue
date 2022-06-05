@@ -1,5 +1,5 @@
 <template>
-    <div class="login">
+    <div class="login" style="margin-top: 55px;">
       <div class="login__input-wrap">
         <InputWrap
             label="Email"
@@ -16,6 +16,8 @@
       </div>
       <Button class="login__btn" @click="login">Войти</Button>
       <Button class="login__btn" @click="$router.push({name: 'Registration'})">Регистрация</Button>
+      <Button class="login__btn" @click="$store.commit('setUserToken', 'aa'); $router.push({name: 'Profile'})">Тест</Button>
+<!--      TODO: Убрать на релизе-->
     </div>
 </template>
 

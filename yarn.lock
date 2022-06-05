@@ -8964,6 +8964,11 @@
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
 
+"vue3-click-away@^1.2.1":
+  "integrity" "sha512-O9Z2KlvIhJT8OxaFy04eiZE9rc1Mk/bp+70dLok68ko3Kr8AW5dU+j8avSk4GDQu94FllSr4m5ul4BpzlKOw1A=="
+  "resolved" "https://registry.npmjs.org/vue3-click-away/-/vue3-click-away-1.2.4.tgz"
+  "version" "1.2.4"
+
 "vuex-persistedstate@^4.1.0":
   "integrity" "sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ=="
   "resolved" "https://registry.npmjs.org/vuex-persistedstate/-/vuex-persistedstate-4.1.0.tgz"

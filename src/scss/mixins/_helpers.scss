@@ -63,14 +63,14 @@
   top: 0;
 }
 @mixin scrollbar() {
-  scrollbar-color: var(--yellow-black-color) var(--scrollbar-bg);
+  scrollbar-color: var(--main-srollbar) var(--main-srollbar-tumb);
   scrollbar-width: thin;
   &::-webkit-scrollbar {
-    width: 2px;
+    width: 4px;
     height: 2px;
-    background-color: var(--scrollbar-bg);
+    background-color: var(--main-srollbar);
   }
   &::-webkit-scrollbar-thumb {
-    background-color: var(--yellow-black-color);
+    background-color: var(--main-srollbar-tumb);
   }
 }

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import store from "@/store";
 
 const routes = [
     {
@@ -61,7 +62,18 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: () => import('@/views/Profile.vue'),
+        meta: {
+            auth: true,
+        },
         children: [
+            {
+                path: 'player',
+                name: 'Player',
+                component: () => import('@/views/profile/Player.vue'),
+                meta: {
+                    name: 'Игрок',
+                },
+            },
             {
                 path: 'character',
                 name: 'Character',
@@ -92,6 +104,12 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
+});
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.auth && !store.state.isAuthenticated)
+        next({ name: "Login" });
+    else next();
 });
 
 export default router;

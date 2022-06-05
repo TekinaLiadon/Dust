@@ -2,10 +2,10 @@
   <SmoothHeight>
   <div class="character">
     <Button class="character__btn"
-            style="position: absolute; top: -40px; right: 0;"
+            style="position: absolute; top: -60px; right: 0;"
             @protected-click="editCharacter"
     >
-      Редактировать
+      {{editBtnText}}
     </Button>
     <h1 class="character__header">
       {{ formData.name }}
@@ -16,27 +16,32 @@
         <h3 v-if="!isEdit">Игровой логин: {{ formData.login }}</h3>
         <div class="character__edit__login" v-else>
           Игровой логин:
-          <InputWrap class="character__edit__input" v-model="formData.login"/>
+          <InputWrap class="character__edit__input" v-model="formData.login" />
         </div>
         </transition>
         <img
+            ref="img"
             src="../../assets/images/home-content2.png"
             style="height: 90%;; margin-top: 10px; border: 2px solid var(--main-border);"
         />
+        <InputFile
+            v-if="isEdit"
+            :name="'Загрузить картинку'"
+            class="character__edit__img"
+            @loadingFile="updateImg"
+        >
+        </InputFile>
       </div>
       <div class="character__description">
         <h3>Описание:</h3>
         <div class="character__description__content">
           <transition name="fade-in">
-          <p class="character__p" v-if="!isEdit">
+          <p class="character__p" v-if="!isEdit" style="text-align: start;">
             {{ formData.description }}
           </p>
           <Textarea
               v-else
-              :info="{
-                        cols: 90,
-                        rows: 30,
-                      }"
+              :info="textareaDesc"
               v-model="formData.description"
           />
           </transition>
@@ -50,10 +55,7 @@
       <p class="character__p" v-if="!isEdit">{{ formData.personality }}</p>
       <Textarea
           v-else
-          :info="{
-                        cols: 200,
-                        rows: 31,
-                      }"
+          :info="textareaInfo"
           v-model="formData.personality"
       />
     </div>
@@ -64,10 +66,7 @@
       <p class="character__p" v-if="!isEdit">{{ formData.biography }}</p>
       <Textarea
           v-else
-          :info="{
-                        cols: 200,
-                        rows: 31,
-                      }"
+          :info="textareaInfo"
           v-model="formData.biography"
       />
     </div>
@@ -80,22 +79,19 @@
     <h1 class="character__header">
       Дополнительное
     </h1>
-    <div class="character__block">
+    <div class="character__block" style="margin-bottom: 20px">
       <p class="character__p" v-if="!isEdit">{{ formData.extra }}</p>
       <Textarea
           v-else
-          :info="{
-                        cols: 200,
-                        rows: 31,
-                      }"
+          :info="textareaInfo"
           v-model="formData.extra"
       />
     </div>
-    <div class="character__btn-group">
-      <Button class="character__btn">
+    <div class="character__btn-group" v-if="isEdit">
+      <Button class="character__btn" @protected-click="saveCharacter">
         Сохранить
       </Button>
-      <Button class="character__btn">
+      <Button class="character__btn" @protected-click="editSkin">
         Выбрать скин
       </Button>
     </div>
@@ -108,13 +104,24 @@ import Button from "../../components/ui/Button";
 import Textarea from "../../components/ui/Textarea";
 import InputWrap from "../../components/ui/InputWrap";
 import SmoothHeight from "../../components/ui/SmoothHeight";
+import backend from "@/api/backend";
+import InputFile from "../../components/ui/InputFile";
 
 export default {
   name: "Character",
-  components: {SmoothHeight, InputWrap, Textarea, Button},
+  components: {InputFile, SmoothHeight, InputWrap, Textarea, Button},
   data() {
     return {
       isEdit: false,
+      file: '',
+      textareaDesc: {
+        cols: 90,
+        rows: 30,
+      },
+      textareaInfo: {
+        cols: 200,
+        rows: 31,
+      },
       formData: {
         name: 'Название персонажа',
         login: 'Прикол',
@@ -158,16 +165,78 @@ export default {
       }
     }
   },
+  computed: {
+    editBtnText () {
+      return this.isEdit ? 'Отмена' : 'Редактировать'
+    }
+  },
   methods: {
     editCharacter() {
       this.isEdit = !this.isEdit
-      console.log('aa')
-    }
+    },
+    editSkin() {
+      this.$store.commit("setCurrentPopup", {
+        name: "Skins",
+        isShown: true,
+      });
+    },
+    saveCharacter() {
+      this.isEdit = false
+      /*backend({
+        method: 'post',
+        url: '/auth',
+        data: this.formData,
+      })
+          .catch(() => {
+            this.$store.commit("pushToTray", {
+              text: 'Что-то пошло не так',
+              type: "error",
+            });
+          });*/
+    },
+    updateImg(file) {
+      let reader = new FileReader();
+      this.$refs.img.file = file;
+      reader.onload = (function (aImg) {
+        return function (result) {
+          aImg.src = result.target.result;
+        };
+      })(this.$refs.img);
+      reader.readAsDataURL(file);
+      this.file = file;
+      this.isAddFile = true;
+    },
   }
 }
 </script>
 
 <style lang="scss">
+
+@media (max-width: 900px) {
+  .character {
+    &__main {
+      display: flex;
+      width: 100%;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__img {
+      max-width: 90% !important;
+      min-height: 100% !important;
+    }
+
+    &__description {
+      max-width: 90% !important;
+    }
+
+    &__header {
+      min-width: 90% !important;
+      font-size: 30px;
+    }
+  }
+}
 .character {
   display: flex;
   flex-direction: column;
@@ -197,21 +266,22 @@ export default {
       margin-left: 10px;
       min-width: 200px;
     }
+
+    &__img {
+      margin-top: 20px;
+      color: var(--main-text)
+    }
   }
 
   &__p {
     max-width: 90%;
-    margin: 10px
+    margin: 10px;
   }
 
   &__btn {
     margin: 10px;
     padding: 7px;
     min-width: 80px;
-    border: 2px solid var(--main-border);
-    background: var(--main-back);
-    color: var(--main-text);
-    font-size: 15px;
   }
 
   &__btn-group {
@@ -249,12 +319,13 @@ export default {
     justify-content: space-between;
 
     &__content {
-      border: 2px solid var(--main-border);
+      border: 1px solid var(--main-border);
       background: var(--main-back);
       height: 90%;
       overflow: auto;
       display: flex;
       justify-content: center;
+      @include scrollbar();
     }
   }
 
@@ -264,10 +335,11 @@ export default {
     overflow: auto;
     min-height: 200px;
     max-height: 500px;
-    border: 2px solid var(--main-border);
+    border: 1px solid var(--main-border);
     background: var(--main-back);
     display: flex;
     justify-content: center;
+    @include scrollbar();
   }
 }
 </style>

@@ -59,8 +59,7 @@ export default {
     border: 1px solid var(--main-border);
     border-radius: 4px;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 1.5em;
     color: var(--main-text);
     resize: vertical;
     transition: all 0.3s ease-in-out;
@@ -72,7 +71,7 @@ export default {
   }
   &-label {
     font-weight: 400;
-    font-size: 8px;
+    font-size: 1.5em;
     line-height: 10px;
     color: #7a7a7a;
     position: absolute;

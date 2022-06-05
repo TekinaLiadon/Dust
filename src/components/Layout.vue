@@ -9,8 +9,8 @@
     <Header  />
     <div class="layout__content">
       <slot  />
+      <Footer v-if="false" />
     </div>
-    <Footer v-if="false" />
   </div>
 </template>
 

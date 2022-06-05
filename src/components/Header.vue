@@ -24,7 +24,7 @@
     Онлайн
   </div>
   <div class="header__login">
-    <div class="header__item" @click="$router.push({name: 'Login'})">
+    <div class="header__item" @click="$router.push({name: 'Profile'})">
       <img src="../assets/images/login.svg" />
     </div>
   </div>
@@ -88,6 +88,7 @@ export default {
     color: rgba(189, 167, 48, 1);
     cursor: pointer;
     margin: 10px;
+    font-size: 15px;
   }
 }
 </style>

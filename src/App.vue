@@ -5,15 +5,21 @@
     </Layout>
 <!--      <Preloader v-else overlay-mode />-->
   </router-view>
+  <Tray />
+  <transition name="'fade-in'">
+    <PopupController />
+  </transition>
 </template>
 
 <script>
 import "animate.css";
 import Layout from "./components/Layout";
+import Tray from "./components/ui/Tray";
+import PopupController from "./components/popups/PopupController";
 
 export default {
   name: "App",
-  components: {Layout}
+  components: {PopupController, Tray, Layout}
 }
 </script>
 
@@ -24,10 +30,11 @@ export default {
 }
 body {
   margin: 0;
-  font-family: 'Roboto Flex', sans-serif;
+  font-family: 'PT Serif', serif;
 }
 p {
   color: rgba(202, 187, 147, 1);
   font-size: 1.5em;
+  white-space: pre-wrap;
 }
 </style>
