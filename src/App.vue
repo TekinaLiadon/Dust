@@ -28,6 +28,6 @@ body {
 }
 p {
   color: rgba(202, 187, 147, 1);
-  font-size: 0.9em;
+  font-size: 1.5em;
 }
 </style>

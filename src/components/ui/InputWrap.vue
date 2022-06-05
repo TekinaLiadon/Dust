@@ -57,17 +57,18 @@ export default {
   position: relative;
   color: white;
 
+
   input {
     width: 100%;
     padding: 17px 15px 12px 15px;
     background: transparent;
-    border: 1px solid var(--input-border-color);
+    border: 1px solid var(--main-border);
     box-sizing: border-box;
     border-radius: 4px;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    color: var(--white-black-color);
+    color: white;
     transition: all 0.3s ease-in-out;
     &:focus ~ label,
     &.is-focused ~ label {
@@ -77,7 +78,8 @@ export default {
       color: #7a7a7a;
     }
     &:focus {
-      border-color: var(--yellow-black-color);
+      border-color: var(--main-focus);
+      outline: 0;
     }
   }
 
