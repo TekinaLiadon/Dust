@@ -1,0 +1,12 @@
+.fade-in-enter-active,
+.fade-in-enter-to {
+  animation: fadeIn;
+  animation-duration: 0.8s;
+}
+
+.fade-in-button-enter-active,
+.fade-in-button-enter-to {
+  animation: fadeIn;
+  animation-duration: 0.8s;
+  animation-delay: 0.3s;
+}

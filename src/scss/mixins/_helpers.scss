@@ -1,0 +1,76 @@
+// Media Queries
+@mixin adaptive($size) {
+  @if $size == phone-small {
+    @media screen and (max-width: 351px) {
+      @content;
+    }
+  } @else if $size == phone-semi-small {
+    @media screen and (max-width: 376px) {
+      @content;
+    }
+  } @else if $size == phone {
+    @media screen and (max-width: 479px) {
+      @content;
+    }
+  } @else if $size == phone-big {
+    @media screen and (max-width: 551px) {
+      @content;
+    }
+  } @else if $size == tablet-semi-small {
+    @media screen and (max-width: 671px) {
+      @content;
+    }
+  } @else if $size == tablet-small {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == tablet-semi-big {
+    @media screen and (max-width: 846px) {
+      @content;
+    }
+  } @else if $size == tablet-big {
+    @media screen and (max-width: 991px) {
+      @content;
+    }
+  } @else if $size == desktop-small {
+    @media screen and (max-width: 1151px) {
+      @content;
+    }
+  } @else if $size == desktop-semi-mid {
+    @media screen and (max-width: 1251px) {
+      @content;
+    }
+  } @else if $size == desktop-mid {
+    @media screen and (max-width: 1371px) {
+      @content;
+    }
+  } @else if $size == desktop-big {
+    @media screen and (max-width: 1599px) {
+      @content;
+    }
+  } @else if $size == desktop-semi-big {
+    @media screen and (max-width: 1751px) {
+      @content;
+    }
+  }
+}
+// Full stretching an item the size of it's parent.
+@mixin full-absolute() {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+@mixin scrollbar() {
+  scrollbar-color: var(--main-srollbar) var(--main-srollbar-tumb);
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+    background-color: var(--main-srollbar);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-srollbar-tumb);
+  }
+}
