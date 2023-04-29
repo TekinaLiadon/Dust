@@ -6,10 +6,6 @@ module.exports = {
             },
         },
     },
-    devServer: {
-        host: "local.y7jasha6g5cdsa.ru",
-        disableHostCheck: true,
-    },
 
     pluginOptions: {
         i18n: {
